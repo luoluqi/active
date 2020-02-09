@@ -1,0 +1,21 @@
+<!-- 11111
+<view wx:for="{{activeList}}" bindtap="toDetail" data-active="{{item}}">{{item}}</view> -->
+<view class="tr" wx:for="{{activeList}}" wx:key="{{index}}" bindtap="toDetail" data-active="{{item}}">
+ <image class="head-img middle"  src="{{item.avatarUrl}}"></image>
+  <text class=" middle nickname" >{{item.nickName}}</text>
+  <view class="desc">{{item.content}}</view>
+  <view class="img-p">
+  <image wx:for="{{item.imgList}}" 
+  wx:for-item="url" 
+  wx:key="{{url}}"
+  data-url="{{url}}" 
+  data-list="{{item.imgList}}" 
+  catchtap="previewImage"
+  class="img-item" src="{{url}}" mode="aspectFill" lazy-load="true"></image>
+ 
+  </view>
+</view>
+
+<view wx:if="{{isMore}}" class="no-more">加载中</view>
+<view wx:else="{{isMore}}" class="no-more">没有更多了</view>
+<view class="bottom-space"></view>

@@ -1,0 +1,6 @@
+<view class="login-con">
+  <button type="primary"
+   open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">授权登录</button>
+</view>
+<view class="login-desc">授权后，将获取您的头像、昵称，以便更好的为您服务</view>

@@ -1,0 +1,40 @@
+<wxs src="../../util/filter.wxs" module="filter" />
+<block wx:if="{{isShow}}">
+<view class="tr">
+  <textarea bindinput='contentInput' class="active-desc" value="{{content}}" placeholder="简单介绍一下活动" />
+</view>
+<view class="img-p">
+  <view wx:for="{{imgList}}" class="img-con">
+    <image catchtap="delImg" data-index="{{index}}" class="del-img" src="/images/del-btn.png"></image>
+    <image bindtap="previewImage" data-url="{{item}}" class="img-item" src="{{item}}" mode="aspectFill"></image>
+  </view>
+  <view  wx:if="{{imgList.length < 9}}"  class="img-con">
+    <image bindtap="chooseImage" class="img-item" src="/images/add-img.png" mode="aspectFill"></image>
+  </view>
+  
+</view>
+<view class="tr">
+   <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+    <view class="picker">
+      选择日期: {{date}} {{filter.descDate(date)}}
+    </view>
+  </picker>
+</view>
+<view class="tr">
+   <picker mode="time" value="{{time}}"  bindchange="bindTimeChange">
+    <view class="picker">
+      选择时间: {{time}}
+    </view>
+  </picker>
+</view>
+<view class="tr" bindtap="chooseLocation">
+  选择地点：{{address}}
+</view>
+<view class="bottom-space"></view>
+<view class="bottom-p">
+  <button bindtap="addActive" type="primary">创建一个活动</button>
+</view>
+</block>
+<block wx:else>
+<view>此功能暂未开发</view>
+</block>

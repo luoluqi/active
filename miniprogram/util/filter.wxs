@@ -1,0 +1,38 @@
+module.exports = {
+  date: function (time){
+    
+    time = time.replace("-", ':').replace("-", ':').replace(' ', ':');
+    console.log(time);
+    time = time.split(':');
+  
+    //var time1 = new Date(time[0], (time[1] - 1), time[2], time[3], time[4], time[5]);
+
+
+    return time[1] + "月" + time[2] + "日 " + time[3] + ":" + time[4];
+  },
+  descDate:function(time){
+    if(!time){
+      return ''
+    }
+    time = time.replace("-", ':').replace("-", ':').replace(' ', ':');
+    time = time.split(':');
+    var date = getDate(time[0], (time[1] - 1), time[2], 0, 0, 0, 0);
+    var now = getDate();
+    now.setHours(0);
+    now.setMinutes(0);
+    now.setSeconds(0)
+    now.setMilliseconds(0)
+    var offsetTime = date.getTime() - now.getTime();
+    var offsetStr = '';
+    if(offsetTime <= 0){
+
+    }else{
+      var num = offsetTime / 1000 / 3600 / 24
+      offsetStr = num + '天后'
+    }
+    var weekList = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+    var day = date.getDay()
+
+    return weekList[day] + ' ' + offsetStr;
+  }
+}

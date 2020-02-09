@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 用户 openid -->
+  <view class="userinfo">
+  <block wx:if="{{avatarUrl == ''}}">
+    <image  class="userinfo-avatar" src="/images/user-unlogin.png"></image>
+
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar get-user-info"
+      size="default"
+    ></button>
+  </block>
+  <block wx:else>
+     <image  class="userinfo-avatar" src="{{avatarUrl}}"></image>
+  </block>
+    <view class="userinfo-nickname-wrapper">
+   
+      <button  bindtap="toAdd" class="userinfo-nickname"  type="primary">
+         创建一个活动
+        </button>
+     
+    </view>
+  </view>
+
+
+  <view class="uploader">
+    <view bindtap="toMyActive" open-type="navigate" class="uploader-text">
+      <text>我发起的</text>
+    </view>
+  </view>
+
+    <view class="uploader">
+    <view bindtap="toMyJoin"  open-type="navigate" class="uploader-text">
+      <text>我参加的</text>
+    </view>
+  </view>
+
+ 
+    <button open-type="contact" class="kefu">联系客服</button>
+ 
+ 
+</view>
+

@@ -1,0 +1,19 @@
+
+<view class="share-container" style='height:{{conHeight}}px;'>
+  <image hidden='{{!isShow}}' src="{{shareImage}}" mode='aspectFit' class="share-image"></image>
+  <canvasdrawer painting="{{painting}}"  bind:getImage="eventGetImage"/>
+</view>
+
+<!-- <view class='share-bottom-space'></view> -->
+<view class='share-bottom'>
+  <view class='bt-con'>
+    <view wx:for="{{bgList}}" bindtap='change' data-index="{{index}}" wx:key="{{index}}"  class='bg-thum-p' style='background:{{item.bgColor}};'>
+   
+    </view>
+  </view>
+  <view></view>
+  <view class='save-btn' bind:tap="eventSave">保存到手机，再分享到朋友圈</view>
+</view>
+
+
+
