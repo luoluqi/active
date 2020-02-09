@@ -2,7 +2,7 @@
 <view class="tr">
  <image class="head-img middle"  src="{{active.avatarUrl}}"></image>
   <text class=" nickname middle" > {{active.nickName}}</text>
-  <button bindtap="aginAdd" type="primary" size="mini" class="agin-fa">再次发起活动</button>
+  <button bindtap="aginAdd" type="primary" size="mini" class="agin-fa">复制活动</button>
 </view>
 <view class="tr">
   <text class="active-desc" >{{active.content}}</text>
